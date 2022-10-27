@@ -43,13 +43,18 @@
       .btnCancel {
         @include button-style(
           map-get($grays, 400),
-          map-get($grays, 100),
+          map-get($grays, 200),
           map-get($grays, 600)
         );
+        transition: all 0.2s;
 
         &:hover {
-          background-color: map-get($grays, 200);
-          color: map-get($grays, 600);
+          @include button-style(
+            map-get($grays, 400),
+            map-get($grays, 700),
+            map-get($grays, 300)
+          );
+          transition: all 0.2s;
         }
       }
 
@@ -59,10 +64,33 @@
           map-get($greens, 50),
           map-get($greens, 500)
         );
+        transition: all 0.2s;
 
         &:hover {
-          background-color: map-get($greens, 300);
-          color: map-get($greens, 0);
+          @include button-style(
+            map-get($greens, 300),
+            darken(map-get($greens, 50), 50),
+            map-get($greens, 0)
+          );
+          transition: all 0.2s;
+        }
+      }
+
+      .btnConfirmRemove {
+        @include button-style(
+          map-get($negative, 500),
+          map-get($negative, 500),
+          map-get($negative, 0)
+        );
+        transition: all 0.2s;
+
+        &:hover {
+          @include button-style(
+            map-get($negative, 500),
+            darken(map-get($negative, 500), 20),
+            map-get($negative, 0)
+          );
+          transition: all 0.2s;
         }
       }
     }

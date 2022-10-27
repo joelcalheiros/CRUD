@@ -2,15 +2,17 @@ import { useState } from "react";
 import { editItem } from "../store/listSlice";
 import { useAppDispatch } from "../hooks/hooks";
 import style from "./Modal.module.scss";
+import Button from "./Button";
+import iModal from "../interfafes/modal";
 
-const EditModal = (props: any) => {
-  const { id, name, setShowEditModal } = props;
+const EditModal = ({ id, name, toggleShow }: iModal) => {
+  // const { id, name, setShowEditModal } = props;
   const [value, setValue] = useState<string>(name);
   const dispatch = useAppDispatch();
 
   const handleConfirmRemove = () => {
     dispatch(editItem({ id, value }));
-    setShowEditModal(false);
+    toggleShow(false);
   };
 
   return (
@@ -24,20 +26,16 @@ const EditModal = (props: any) => {
           onChange={(e) => setValue(e.target.value)}
         />
         <div className={style.buttons}>
-          <button
-            type="button"
-            className={style.btnCancel}
-            onClick={() => setShowEditModal(false)}
-          >
-            Cancel
-          </button>
-          <button
-            type="button"
-            className={style.btnConfirm}
-            onClick={handleConfirmRemove}
-          >
-            Yes
-          </button>
+          <Button
+            text="Cancel"
+            handleClickBtn={() => toggleShow(false)}
+            cssClass={style.btnCancel}
+          />
+          <Button
+            text="Save"
+            handleClickBtn={handleConfirmRemove}
+            cssClass={style.btnConfirm}
+          />
         </div>
       </div>
     </div>

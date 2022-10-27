@@ -65,10 +65,15 @@
         map-get($grays, 200),
         map-get($grays, 600)
       );
+      transition: all 0.2s;
 
       &:hover {
-        background-color: map-get($grays, 600);
-        color: map-get($grays, 100);
+        @include button-style(
+          map-get($grays, 400),
+          map-get($grays, 700),
+          map-get($grays, 300)
+        );
+        transition: all 0.2s;
       }
     }
   }

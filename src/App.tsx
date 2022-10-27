@@ -1,11 +1,12 @@
 import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "./hooks/hooks";
-import style from "./App.module.scss";
 import { fetchList } from "./store/listSlice";
-import iList from "./interfafes/list";
+import { useAppDispatch, useAppSelector } from "./hooks/hooks";
 import Card from "./components/Card";
-import API_URL from "./constants";
 import AddCard from "./components/AddCard";
+import Loading from "./components/Loading";
+import iList from "./interfafes/list";
+import API_URL from "./constants";
+import style from "./App.module.scss";
 
 const App = () => {
   const dispatch = useAppDispatch();
@@ -16,12 +17,7 @@ const App = () => {
     dispatch(fetchList(API_URL));
   }, [dispatch]);
 
-  if (list.length === 0)
-    return (
-      <div className={style.loading} data-testid="loading">
-        <img className={style.spinner} src="./spinner.svg" alt="loading" />
-      </div>
-    );
+  if (list.length === 0) return <Loading />;
 
   return (
     <section className={style.App} data-testid="list">

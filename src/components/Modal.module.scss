@@ -1,0 +1,70 @@
+@import "../styles/variables";
+@import "../styles/mixins";
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9;
+
+  .body {
+    background-color: map-get($grays, 0);
+    border: 1px solid map-get($grays, 400);
+    padding: 50px;
+    width: 500px;
+    border-radius: map-get($border-radius, large);
+
+    h2 {
+      font-family: "arial";
+      font-size: 20px;
+    }
+
+    .input {
+      width: 100%;
+      color: map-get($grays, 600);
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid map-get($grays, 400);
+      border-radius: map-get($border-radius, small);
+    }
+
+    .buttons {
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+
+      .btnCancel {
+        @include button-style(
+          map-get($grays, 400),
+          map-get($grays, 100),
+          map-get($grays, 600)
+        );
+
+        &:hover {
+          background-color: map-get($grays, 200);
+          color: map-get($grays, 600);
+        }
+      }
+
+      .btnConfirm {
+        @include button-style(
+          map-get($greens, 300),
+          map-get($greens, 50),
+          map-get($greens, 500)
+        );
+
+        &:hover {
+          background-color: map-get($greens, 300);
+          color: map-get($greens, 0);
+        }
+      }
+    }
+  }
+}

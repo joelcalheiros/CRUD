@@ -1,0 +1,30 @@
+// Grays
+$grays: (
+  0: #fff,
+  50: #fbfcfc,
+  100: #f6f9f9,
+  200: #e7eaed,
+  300: #e7ebed,
+  400: #d0d6dd,
+  500: #a2adba,
+  600: #757575,
+  700: #444444,
+  800: #424242,
+  900: #212121,
+);
+
+$greens: (
+  0: #edfff3,
+  50: #bbf5cf,
+  100: #8decad,
+  300: #0bc14b,
+  500: #068243,
+  700: #08422b,
+);
+
+$border-radius: (
+  small: 4px,
+  large: 8px,
+);
+
+$box-shadow: 0 26px 24px -16px rgb(0 0 0 / 40%);

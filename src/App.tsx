@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "./hooks/hooks";
+import style from "./App.module.scss";
+import { fetchList } from "./store/listSlice";
+import iList from "./interfafes/list";
+import Card from "./components/Card";
+import API_URL from "./constants";
+import AddCard from "./components/AddCard";
 
-function App() {
+const App = () => {
+  const dispatch = useAppDispatch();
+
+  const list = useAppSelector((state) => state.list.items);
+
+  useEffect(() => {
+    dispatch(fetchList(API_URL));
+  }, [dispatch]);
+
+  if (list.length === 0)
+    return (
+      <div className={style.loading} data-testid="loading">
+        <img className={style.spinner} src="./spinner.svg" alt="loading" />
+      </div>
+    );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section className={style.App} data-testid="list">
+      <div className={style.list}>
+        <AddCard />
+        {list.map((item: iList) => (
+          <Card key={item.id} {...item} />
+        ))}
+      </div>
+    </section>
   );
-}
+};
 
 export default App;

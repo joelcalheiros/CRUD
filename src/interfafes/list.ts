@@ -1,4 +1,4 @@
-interface Thumbnail {
+interface iThumbnail {
   path: string;
   extension: string;
 }
@@ -6,5 +6,5 @@ interface Thumbnail {
 export default interface iList {
   id: number;
   name: string;
-  thumbnail: Thumbnail;
+  thumbnail: iThumbnail;
 }

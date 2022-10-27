@@ -1,12 +1,11 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 import { editItem } from "../store/listSlice";
 import { useAppDispatch } from "../hooks/hooks";
 import style from "./Modal.module.scss";
 import Button from "./Button";
 import iModal from "../interfafes/modal";
 
-const EditModal = ({ id, name, toggleShow }: iModal) => {
-  // const { id, name, setShowEditModal } = props;
+const EditModal: FC<iModal> = ({ id, name, toggleShow }: iModal) => {
   const [value, setValue] = useState<string>(name);
   const dispatch = useAppDispatch();
 

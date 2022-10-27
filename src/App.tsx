@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { fetchList } from "./store/listSlice";
 import { useAppDispatch, useAppSelector } from "./hooks/hooks";
-import Card from "./components/Card";
 import AddCard from "./components/AddCard";
+import Card from "./components/Card";
 import Loading from "./components/Loading";
 import iList from "./interfafes/list";
-import API_URL from "./constants";
 import style from "./App.module.scss";
+import API_URL from "./constants";
 
 const App = () => {
   const dispatch = useAppDispatch();

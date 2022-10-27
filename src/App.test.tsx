@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, act } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import App from "./App";
 import { Provider } from "react-redux";
 import { createMockStore } from "redux-test-utils";
@@ -64,7 +64,5 @@ describe("Render App", () => {
     );
     const addCard = screen.getByTestId("addCard");
     expect(addCard).toBeInTheDocument();
-
-    fireEvent.click(addCard);
   });
 });

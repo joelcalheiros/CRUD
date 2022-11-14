@@ -1,4 +1,4 @@
-# [Marvel] Coding challenge
+# [Marvel] CRUD API
 
 ![alt text](./public/Screenshot_13.png "[Marvel] Coding challenge")
 

@@ -1,6 +1,6 @@
 # [Marvel] CRUD API
 
-![alt text](./public/Screenshot_13.png "[Marvel] Coding challenge")
+![alt text](./public/Screenshot_13.png "[Marvel] CRUD API")
 
 ## Getting Started
 

@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice, current } from "@reduxjs/toolkit";
 import iList from "../interfafes/list";
+import Movie from "../interfafes/movie";
 
 interface InitialState {
   items: iList[];
@@ -31,7 +32,7 @@ const listSlice = createSlice({
     editItem: (state, action) => {
       const items = current(state.items);
       const { id, value } = action.payload;
-
+      debugger;
       const indexOfId = items.findIndex((item: iList) => item.id === id);
       state.items[indexOfId].name = value;
     },
@@ -47,7 +48,16 @@ const listSlice = createSlice({
     builder.addCase(
       fetchList.fulfilled,
       (state: InitialState, { payload }: any) => {
-        state.items = [...payload.data.results];
+        const data: any = [];
+        payload.data.results.forEach((item: Movie) => {
+          data.push({
+            id: item.id,
+            name: item.name,
+            thumbnail: item.thumbnail,
+          });
+        });
+
+        state.items = data;
       }
     );
   },

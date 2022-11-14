@@ -2,6 +2,7 @@ import { addItem } from "../store/listSlice";
 import { useAppDispatch } from "../hooks/hooks";
 import style from "./AddCard.module.scss";
 import { FC } from "react";
+import Button from "./Button";
 
 const AddCard: FC = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -11,14 +12,13 @@ const AddCard: FC = (): JSX.Element => {
 
   return (
     <div className={style.addCard}>
-      <button
-        className={style.btn}
-        onClick={addNewCard}
+      <Button
+        cssClass={style.btn}
+        handleClickBtn={addNewCard}
         title="Add character"
-        data-testid="addCard"
-      >
-        +
-      </button>
+        dataTestid="addCard"
+        text="+"
+      />
     </div>
   );
 };

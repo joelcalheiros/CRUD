@@ -1,6 +1,6 @@
-# [DEUS] Coding challenge
+# [Marvel] Coding challenge
 
-![alt text](./public/Screenshot_13.png "[DEUS] Coding challenge")
+![alt text](./public/Screenshot_13.png "[Marvel] Coding challenge")
 
 ## Getting Started
 

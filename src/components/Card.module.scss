@@ -5,7 +5,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 100%;
   border: 1px solid map-get($grays, 300);
   border-radius: map-get($border-radius, large);
   overflow: hidden;
@@ -76,13 +76,5 @@
         transition: all 0.2s;
       }
     }
-  }
-
-  @media (max-width: map-get($breakpoints, md)) {
-    width: 48%;
-  }
-
-  @media (max-width: map-get($breakpoints, xs)) {
-    width: 100%;
   }
 }
